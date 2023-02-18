@@ -8,6 +8,8 @@ import { COUNTRY_SELECTION_CONFIRM, COUNTRY_SELECTION_DROPDOWN, COUNTRY_SELECTIO
 describe("e2e test", ()=>{
     context.only("Country selection",()=>{
         it("should selecet a country",function(){ 
+
+//Burada ki be behavir yani davranış demek.            
             cy.visit("https://www.trendyol.com/en/select-country?cb=/en");
             cy.get(COUNTRY_SELECTION_POPUP).should('be.visible');
             cy.get(COUNTRY_SELECTION_DROPDOWN).select("Belgium");
