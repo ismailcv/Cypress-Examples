@@ -15,7 +15,7 @@ describe("DropDowns", ()=>{
     })
 
 
-    it("Dropdown without select",()=>{
+    it.skip("Dropdown without select",()=>{
         cy.visit("https://www.dummyticket.com/dummy-ticket-for-visa-application/")     
 //Burada dropdown listesini bulma işlemini yapıyoruz.        
         cy.get("[id=select2-billing_country-container]").click()
@@ -27,9 +27,27 @@ describe("DropDowns", ()=>{
         cy.get("[class=selectselection__rendered]")
         .should("have.text","Canada")
 */
-  
-
     })
 
+
+//Otamatik önerili dropdown. Burada biz bir şey yazıcaz ona göre
+//altta dropdown list ile bize seçenekleri sunacak
+//Bu örnekte wikipedia'yı açıp istanbul yazıyoruz.    
+    it.skip("Auto suggestion dropdown",()=>{
+        cy.visit("https://www.wikipedia.org/")
+        cy.get("input[id=searchInput]").type("İstanbul")
+//.locaters'ın ismi dersek kaç tane seçenek varsa hepisini görür
+//sonrada buradan contaoin diyerek bunları içerenleri al diyoruz. 
+        cy.get(".suggestion-link")
+        .contains("İstanbul Teknik Üniversitesi").click()
+    })
+
+
+//dinamik dropdown (Tamda dinamik olmuyor)   
+    it("Dynamic dropdown",()=>{
+        cy.visit("https://www.google.com/")
+        cy.get("input[class=gLFyf]").type("İstanbul")
+        cy.get(".eIPGRd").contains("istanbul kart").click()
+    })
 
 })
