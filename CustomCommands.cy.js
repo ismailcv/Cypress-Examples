@@ -8,9 +8,7 @@ Cypress.Commands.add("loginapp",(email,password)=>{
     cy.get('#Password').type(password);
     cy.get('form > .buttons > .button-1').click();
 })
-
 */
-
 
 describe("Custom Commands",()=>{
 
